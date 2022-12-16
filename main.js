@@ -2,6 +2,7 @@ const tic = document.querySelectorAll('.cell');
 const restart = document.querySelector('.btn');
 const player = document.querySelector('.player')
 const game = document.querySelector('.game-container');
+// Winning condition 
 const cell = [
   [1,2,3],
   [4,5,6],
@@ -12,11 +13,12 @@ const cell = [
   [3,5,7],
   [1,5,9]
 ]
-
+// cells for players
 const cellX = [];
 const cellO = [];
 let running = false;
 let playerTurn = 'x';
+//cecking winner
 function checkWinner() {
   let won;
   let cells = (playerTurn == 'x') ? cellO : cellX;
@@ -36,7 +38,7 @@ function checkWinner() {
     running = !running
   }
 }
-
+//game starting 
   function gameStart(e) {
   if(!running) {
     if(e.target.textContent) {
@@ -57,11 +59,11 @@ function checkWinner() {
   }
 }
 }
-
+//reset button
 function restartGame() {
   cellO.length = 0;
   cellX.length = 0;
-  running = !running;
+  running = false;
   tic.forEach(cell => cell.textContent = '')
   playerTurn = 'x'
   player.textContent = `X's turn`;
