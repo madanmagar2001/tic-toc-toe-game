@@ -23,7 +23,8 @@ function checkWinner() {
   let won;
   let cells = (playerTurn == 'x') ? cellO : cellX;
   for(let i = 0; i < cell.length; i++) {
-    won = cell[i].every(item => cells.find(item2 => item === item2))
+    won = cell[i].every(item => cells
+    .find(item2 => item === item2))
     if(won) {
       break
     }
@@ -33,8 +34,6 @@ function checkWinner() {
   }
   if (won) {
     player.textContent = cells == cellO ? 'O Wins!' : 'X Wins!';
-    // game.style.pointerEvents = 'none';
-    // running = true
     running = !running
   }
 }
